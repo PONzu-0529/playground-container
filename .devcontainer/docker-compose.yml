@@ -1,0 +1,17 @@
+version: "3"
+services:
+  node16:
+    build:
+      context: "${LOCAL_HOST_PATH}/node16"
+      dockerfile: Dockerfile
+      args:
+        - USERNAME=${USERNAME}
+    container_name: "${PROJECT_NAME}_node16"
+    env_file: .env
+    environment:
+      TZ: Asia/Tokyo
+    tty: true
+    user: "${USERNAME}:${USERNAME}"
+    volumes:
+      - /playground
+    working_dir: "/playground"
